@@ -1,13 +1,29 @@
+definitions:
+  handler.RegisterAnonymousResponse:
+    properties:
+      token:
+        type: string
+    type: object
 host: localhost:8081
 info:
   contact:
     email: iamvkosarev@gmail.com
     name: API Support
   description: Server for Moscow hackathon game project.
-  license:
-    name: Apache 2.0
-    url: http://www.apache.org/licenses/LICENSE-2.0.html
   title: MosHackGame API
   version: "1.0"
-paths: {}
+paths:
+  /user/token/anonymous:
+    get:
+      description: create new token
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.RegisterAnonymousResponse'
+      summary: Provide anonymouse user token
+      tags:
+      - user
 swagger: "2.0"
