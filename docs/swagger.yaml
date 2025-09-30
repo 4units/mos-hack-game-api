@@ -1,0 +1,13 @@
+host: localhost:8081
+info:
+  contact:
+    email: iamvkosarev@gmail.com
+    name: API Support
+  description: Server for Moscow hackathon game project.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  title: MosHackGame API
+  version: "1.0"
+paths: {}
+swagger: "2.0"
