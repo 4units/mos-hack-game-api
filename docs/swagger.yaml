@@ -343,6 +343,8 @@ paths:
           description: Internal Server Error
           schema:
             $ref: '#/definitions/http_errors.ResponseError'
+      security:
+      - BearerAuth: []
       summary: Add quiz
       tags:
       - quiz
@@ -371,6 +373,8 @@ paths:
           description: Internal Server Error
           schema:
             $ref: '#/definitions/http_errors.ResponseError'
+      security:
+      - BearerAuth: []
       summary: Update quiz
       tags:
       - quiz
@@ -404,6 +408,8 @@ paths:
           description: Internal Server Error
           schema:
             $ref: '#/definitions/http_errors.ResponseError'
+      security:
+      - BearerAuth: []
       summary: Complete current user quiz
       tags:
       - quiz
