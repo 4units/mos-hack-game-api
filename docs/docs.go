@@ -205,6 +205,42 @@ const docTemplate = `{
                 }
             }
         },
+        "/game/line/time-stop-booster": {
+            "get": {
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "tags": [
+                    "line-game"
+                ],
+                "summary": "Spend money on stop time booster",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/http_errors.ResponseError"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/http_errors.ResponseError"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/http_errors.ResponseError"
+                        }
+                    }
+                }
+            }
+        },
         "/game/quiz": {
             "get": {
                 "produces": [
@@ -648,7 +684,8 @@ const docTemplate = `{
                     }
                 },
                 "time_since_start": {
-                    "type": "integer"
+                    "type": "integer",
+                    "example": 1
                 }
             }
         },

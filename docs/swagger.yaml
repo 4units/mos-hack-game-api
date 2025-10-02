@@ -70,6 +70,7 @@ definitions:
           type: array
         type: array
       time_since_start:
+        example: 1
         type: integer
     required:
     - time_since_start
@@ -303,6 +304,28 @@ paths:
       security:
       - BearerAuth: []
       summary: Complete current user level
+      tags:
+      - line-game
+  /game/line/time-stop-booster:
+    get:
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/http_errors.ResponseError'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/http_errors.ResponseError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/http_errors.ResponseError'
+      security:
+      - BearerAuth: []
+      summary: Spend money on stop time booster
       tags:
       - line-game
   /game/quiz:
