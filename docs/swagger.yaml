@@ -1,5 +1,44 @@
 basePath: /api
 definitions:
+  config.Balance:
+    properties:
+      start_soft_currency:
+        type: integer
+    type: object
+  config.ItemsPrice:
+    properties:
+      line_game_hint_price:
+        type: integer
+      line_game_stop_time_booster_price:
+        type: integer
+    type: object
+  config.LineGame:
+    properties:
+      check_answer:
+        type: boolean
+      rewards_conditions:
+        items:
+          $ref: '#/definitions/config.LineGameRewardCondition'
+        type: array
+    type: object
+  config.LineGameReward:
+    properties:
+      soft_currency:
+        type: integer
+    type: object
+  config.LineGameRewardCondition:
+    properties:
+      max_time:
+        description: MaxTime is max time in seconds
+        type: number
+      reward:
+        $ref: '#/definitions/config.LineGameReward'
+    type: object
+  config.Quiz:
+    properties:
+      soft_currency_reward:
+        type: integer
+    type: object
   handler.AddQuizRequest:
     properties:
       answer_description:
@@ -189,6 +228,190 @@ info:
   title: MosHackGame API
   version: "1.0"
 paths:
+  /config/balance:
+    get:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/config.Balance'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/http_errors.ResponseError'
+      summary: Get balance config
+      tags:
+      - config
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: Update balance config data
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/config.Balance'
+      responses:
+        "201":
+          description: Created
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/http_errors.ResponseError'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/http_errors.ResponseError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/http_errors.ResponseError'
+      security:
+      - BearerAuth: []
+      summary: Update balance config
+      tags:
+      - config
+  /config/line:
+    get:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/config.LineGame'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/http_errors.ResponseError'
+      summary: Get line game config
+      tags:
+      - config
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: Update line game config data
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/config.LineGame'
+      responses:
+        "201":
+          description: Created
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/http_errors.ResponseError'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/http_errors.ResponseError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/http_errors.ResponseError'
+      security:
+      - BearerAuth: []
+      summary: Update line game config
+      tags:
+      - config
+  /config/price:
+    get:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/config.ItemsPrice'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/http_errors.ResponseError'
+      summary: Get price config
+      tags:
+      - config
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: Update price config data
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/config.ItemsPrice'
+      responses:
+        "201":
+          description: Created
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/http_errors.ResponseError'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/http_errors.ResponseError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/http_errors.ResponseError'
+      security:
+      - BearerAuth: []
+      summary: Update price config
+      tags:
+      - config
+  /config/quiz:
+    get:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/config.Quiz'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/http_errors.ResponseError'
+      summary: Get quiz config
+      tags:
+      - config
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: Update quiz config data
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/config.Quiz'
+      responses:
+        "201":
+          description: Created
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/http_errors.ResponseError'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/http_errors.ResponseError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/http_errors.ResponseError'
+      security:
+      - BearerAuth: []
+      summary: Update quiz config
+      tags:
+      - config
   /game/balance:
     get:
       description: Returns balance of the user.
