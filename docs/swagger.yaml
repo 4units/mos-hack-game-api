@@ -3,41 +3,63 @@ definitions:
   config.Balance:
     properties:
       start_soft_currency:
+        example: 1
         type: integer
+    required:
+    - start_soft_currency
     type: object
   config.ItemsPrice:
     properties:
       line_game_hint_price:
+        example: 40
         type: integer
       line_game_stop_time_booster_price:
+        example: 40
         type: integer
+    required:
+    - line_game_hint_price
+    - line_game_stop_time_booster_price
     type: object
   config.LineGame:
     properties:
       check_answer:
+        example: false
         type: boolean
       rewards_conditions:
         items:
           $ref: '#/definitions/config.LineGameRewardCondition'
         type: array
+    required:
+    - check_answer
+    - rewards_conditions
     type: object
   config.LineGameReward:
     properties:
       soft_currency:
+        example: 40
         type: integer
+    required:
+    - soft_currency
     type: object
   config.LineGameRewardCondition:
     properties:
       max_time:
         description: MaxTime is max time in seconds
+        example: 10
         type: number
       reward:
         $ref: '#/definitions/config.LineGameReward'
+    required:
+    - max_time
+    - reward
     type: object
   config.Quiz:
     properties:
       soft_currency_reward:
+        example: 40
         type: integer
+    required:
+    - soft_currency_reward
     type: object
   handler.AddQuizRequest:
     properties:

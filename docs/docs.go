@@ -872,28 +872,43 @@ const docTemplate = `{
     "definitions": {
         "config.Balance": {
             "type": "object",
+            "required": [
+                "start_soft_currency"
+            ],
             "properties": {
                 "start_soft_currency": {
-                    "type": "integer"
+                    "type": "integer",
+                    "example": 1
                 }
             }
         },
         "config.ItemsPrice": {
             "type": "object",
+            "required": [
+                "line_game_hint_price",
+                "line_game_stop_time_booster_price"
+            ],
             "properties": {
                 "line_game_hint_price": {
-                    "type": "integer"
+                    "type": "integer",
+                    "example": 40
                 },
                 "line_game_stop_time_booster_price": {
-                    "type": "integer"
+                    "type": "integer",
+                    "example": 40
                 }
             }
         },
         "config.LineGame": {
             "type": "object",
+            "required": [
+                "check_answer",
+                "rewards_conditions"
+            ],
             "properties": {
                 "check_answer": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "example": false
                 },
                 "rewards_conditions": {
                     "type": "array",
@@ -905,18 +920,27 @@ const docTemplate = `{
         },
         "config.LineGameReward": {
             "type": "object",
+            "required": [
+                "soft_currency"
+            ],
             "properties": {
                 "soft_currency": {
-                    "type": "integer"
+                    "type": "integer",
+                    "example": 40
                 }
             }
         },
         "config.LineGameRewardCondition": {
             "type": "object",
+            "required": [
+                "max_time",
+                "reward"
+            ],
             "properties": {
                 "max_time": {
                     "description": "MaxTime is max time in seconds",
-                    "type": "number"
+                    "type": "number",
+                    "example": 10
                 },
                 "reward": {
                     "$ref": "#/definitions/config.LineGameReward"
@@ -925,9 +949,13 @@ const docTemplate = `{
         },
         "config.Quiz": {
             "type": "object",
+            "required": [
+                "soft_currency_reward"
+            ],
             "properties": {
                 "soft_currency_reward": {
-                    "type": "integer"
+                    "type": "integer",
+                    "example": 40
                 }
             }
         },
