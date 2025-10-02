@@ -630,7 +630,6 @@ const docTemplate = `{
         "handler.CompleteLevelRequest": {
             "type": "object",
             "required": [
-                "answer",
                 "time_since_start"
             ],
             "properties": {
@@ -728,6 +727,9 @@ const docTemplate = `{
                     "$ref": "#/definitions/handler.Cell"
                 },
                 "field_size": {
+                    "type": "integer"
+                },
+                "level_num": {
                     "type": "integer"
                 },
                 "order": {

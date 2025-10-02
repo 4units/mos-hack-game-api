@@ -72,7 +72,6 @@ definitions:
       time_since_start:
         type: integer
     required:
-    - answer
     - time_since_start
     type: object
   handler.CompleteLevelResponse:
@@ -127,6 +126,8 @@ definitions:
       end_cell:
         $ref: '#/definitions/handler.Cell'
       field_size:
+        type: integer
+      level_num:
         type: integer
       order:
         items:
