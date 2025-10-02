@@ -179,7 +179,7 @@ definitions:
         example: internal server error
         type: string
     type: object
-host: 45.93.201.7
+host: 4units.ru
 info:
   contact:
     email: iamvkosarev@gmail.com
@@ -517,7 +517,7 @@ paths:
       tags:
       - user
 schemes:
-- http
+- https
 securityDefinitions:
   BearerAuth:
     description: 'Type "Bearer <token>" to authenticate. Example: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."'

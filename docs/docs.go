@@ -821,9 +821,9 @@ const docTemplate = `{
 // SwaggerInfo holds exported Swagger Info so clients can modify it
 var SwaggerInfo = &swag.Spec{
 	Version:          "1.0",
-	Host:             "45.93.201.7",
+	Host:             "4units.ru",
 	BasePath:         "/api",
-	Schemes:          []string{"http"},
+	Schemes:          []string{"https"},
 	Title:            "MosHackGame API",
 	Description:      "Server for Moscow hackathon game project.",
 	InfoInstanceName: "swagger",
